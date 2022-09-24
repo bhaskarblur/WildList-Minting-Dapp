@@ -1,0 +1,39 @@
+{
+  "name": "wildlist-mintingdapp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@coinbase/wallet-sdk": "^3.5.2",
+    "@ethersproject/bignumber": "^5.7.0",
+    "@fontsource/work-sans": "^4.5.12",
+    "@reduxjs/toolkit": "^1.8.5",
+    "@walletconnect/client": "^1.8.0",
+    "@walletconnect/qrcode-modal": "^1.8.0",
+    "@walletconnect/web3-provider": "^1.8.0",
+    "@wandevs/web3modal": "^1.14.1",
+    "@web3modal/react": "^2.0.0-alpha.4",
+    "big-number": "^2.0.0",
+    "ethereumjs-testrpc": "^6.0.3",
+    "ethers-react": "^1.1.0",
+    "next": "12.3.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-redux": "^8.0.2",
+    "store": "^2.0.12",
+    "walletlink": "^2.5.0",
+    "web3": "^1.4.0",
+    "web3-utils": "^1.8.0",
+    "web3modal": "^1.9.9"
+  },
+  "devDependencies": {
+    "eslint": "8.23.1",
+    "eslint-config-next": "12.3.1",
+    "hardhat": "^2.11.2"
+  }
+}

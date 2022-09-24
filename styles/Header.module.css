@@ -1,0 +1,79 @@
+.Nav{
+    display: flex;
+    padding-top: .3rem;
+}
+
+.rightNav{
+    margin-left: auto;
+    display: flex;
+}
+
+.socialList{
+    display: flex;
+    gap: .8rem;
+    list-style: none;
+    margin-top: auto;
+    margin-bottom: auto;
+    
+}
+
+.socialBg{
+    background-color: #1e3424a1;
+    padding: .5rem .5rem;
+    display: flex;
+    border-radius: 20rem;
+}
+
+
+.socialBg:hover{
+    background-color: #364b36a1;
+    transition: 200ms;
+}
+
+.connectButton{
+    background-image: linear-gradient(98deg, #0FC28D ,#36C82A, #BFC20F);
+    border: transparent;
+    border-radius: .7rem;
+    font-family: 'Work Sans', sans-serif;
+    color: #ffffff;
+    width: 168px;
+    height: 50px;
+    font-size: 1em;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: pointer;
+}
+
+.connectButton:hover{
+    background-image: none;
+    background-color: #111813;
+    transition: 200ms;
+}
+
+.walletButton{
+   border: .14rem solid #0FC28D;
+   border-top: .14rem solid #36C82A;
+   border-bottom: .14rem solid #36C82A;
+   border-right: .14rem solid #BFC20F;
+   background-image: none;
+   background-color: transparent;
+   border-radius: .7rem;
+    font-family: 'Work Sans', sans-serif;
+    color: #ffffff;
+    width: 162px;
+    height: 50px;
+    font-size: 1em;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: not-allowed;
+}
+
+/*.walletButton:hover{
+    border: transparent;
+    background-color: #111813;
+    transition: 200ms; 
+}*/

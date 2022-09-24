@@ -1,0 +1,209 @@
+
+.heroSection{
+    display: flex;
+    margin-top: -1%;
+}
+
+.heroLeft{
+    margin-left: -5%;
+    display: block;
+}
+
+.heroMid{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    margin-top: 7.5rem;
+    font-family: 'Work Sans',sans-serif;
+}
+.heroRight{
+    margin-left: auto;
+    margin-right: -5%;
+}
+
+.connectButton{
+    background-image: linear-gradient(98deg, #0FC28D ,#36C82A, #BFC20F);
+    border: transparent;
+    border-radius: .7rem;
+    font-family: 'Work Sans', sans-serif;
+    color: #ffffff;
+    width: 168px;
+    height: 50px;
+    font-size: 1em;
+    font-weight: 700;
+    margin-top: 1.2rem;
+    margin-bottom: auto;
+    cursor: pointer;
+}
+
+
+.connectButton:hover{
+    background-image: none;
+    background-color: #111813;
+    transition: 200ms;
+}
+
+.walletButton{
+    border: .14rem solid #0FC28D;
+    border-top: .14rem solid #36C82A;
+    border-bottom: .14rem solid #36C82A;
+    border-right: .14rem solid #BFC20F;
+    background-image: none;
+    background-color: transparent;
+    border-radius: .7rem;
+     font-family: 'Work Sans', sans-serif;
+     color: #ffffff;
+     width: 320px;
+     height: 50px;
+     font-size: 1em;
+     font-weight: 400;
+
+     margin-top: auto;
+     margin-bottom: 1.4rem;
+     cursor: pointer;
+ }
+
+ .walletButton:hover{
+    background-image: none;
+    background-color: #111813;
+    transition: 200ms;
+}
+.mintButton{
+    background-image: linear-gradient(98deg, #0FC28D ,#36C82A, #BFC20F);
+    border: transparent;
+    border-radius: .7rem;
+    font-family: 'Work Sans', sans-serif;
+    color: #ffffff;
+    width: 124px;
+    height: 50px;
+    font-size: 1em;
+    font-weight: 700;
+    margin-top: 1.2rem;
+    margin-bottom: auto;
+    cursor: pointer;
+}
+
+.mintButton:hover{
+    background-image: none;
+    background-color: #111813;
+    transition: 200ms;
+}
+
+.girlImage{
+    margin-top: -5rem;
+ 
+
+}
+
+.boyImage{
+    margin-right: .5rem;
+    margin-bottom: 1rem;
+}
+.frame2{
+    float: right;   
+    margin-right: -2rem;
+    margin-bottom: -4.8rem;
+}
+
+
+.heroText{
+    color: #F6F6FA;
+    font-size: 3.2em;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.01rem;
+    width: auto;
+}
+
+.heroTextDiv{
+    display: block;
+}
+.heroSubText{
+    color: #919F98;
+    font-size: 1.05em;
+    line-height: 142%;
+    margin-top: -4%;
+    letter-spacing: 0.01rem;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 100;
+    width: auto;
+}
+
+.mintPriceText{
+    margin-top: 1.5rem;
+    font-size: 1.2em;
+    color: #F6F6FA;
+}
+
+.mintLeftText{
+    font-size: 1.2em;
+    color: #F6F6FA;
+}
+
+.priceSpan{
+    color: #27E95D;
+}
+
+.mintLeftSpan {
+    color: #27E95D;
+}
+.circleBg{
+    bottom: 0%;
+    display: block;
+    z-index: -10;
+  
+}
+
+.popUp{
+    position: fixed;
+   
+    width: 100%;
+    margin-top: -6%;
+    margin-left: -5%;
+    height: 100%;
+    background-color: #101913af;
+}
+
+.popupDiv{
+    width: 400px;
+    height: auto;
+    background-color: #1B1E23;
+    text-align: center;
+    padding-bottom: 1rem;
+    border-radius: 12px;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
+  
+    display: block;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    transform: translate(125%, 60%);
+    transition: 1000ms;
+
+
+}
+.popupHead{
+    color: #F6F6FA;
+    font-size: 1.6em;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.01rem;
+    width: auto;
+    text-align: center;
+    padding-left: 1rem;
+    margin-left: .2rem;
+    margin-bottom: 1.2rem;
+    
+}
+
+.crossBtn{
+    cursor: pointer;
+    float: right;
+}
+.connectDiv{
+    display: block;
+    width: 100%;
+}
