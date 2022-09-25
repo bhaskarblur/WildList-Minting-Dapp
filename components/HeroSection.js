@@ -15,16 +15,23 @@ import { get } from 'store';
 
 export const providerOptions = {
     coinbasewallet: {
+      rpc: {
+        URL:'https://localhost:8545'
+      },
       package: CoinbaseWalletSDK, 
       options: {
         appName: "WildList Minting DAPP",
-        infuraId: process.env.INFURA_KEY_TEST 
+        infuraId: process.env.INFURA_KEY 
       }
     },
     walletconnect: {
       package: WalletConnect, 
+      rpc: {
+        137: 'https://matic-mainnet.chainstacklabs.com',
+        URL:'https://localhost:8545'
+      },
       options: {
-        infuraId: process.env.INFURA_KEY_TEST 
+        infuraId: process.env.INFURA_KEY 
       }
     }
    };
@@ -55,37 +62,42 @@ const HeroSection = ({ accounts,SetAccounts,type,setType}) => {
     const address=String(accounts);
   //  const mintPublicPrice= String('0.075 ETH');
   //  const mintWhitelistPrice= String('0.055 ETH');
+
     if(isConnected) {
         if(type=='metamask') {
           //  const contract= new ethers.Contract('0x81534B49ee122fA09cf8f03e5af8B99841882A82',WildListNFTABI.abi,signer);
             getData();
             async function getData() {
-     
+              const rpc='https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161';
                 //const provider_ =new ethers.providers.Web3Provider(window.ethereum);
-                const provider_= new ethers.providers.Web3Provider(window.ethereum);
+                const provider_= new ethers.providers.JsonRpcProvider(rpc);
                 const signer = provider_.getSigner();
                 const contract= new ethers.Contract(
-                    contractAddress,
-                    WildListNFTABI.abi,
-                    signer
-                  );
-                mintPublicPrice=await contract.publicPrice();
-                mintWhitelistPrice= await contract.whiteListPrice();
-               setMintLeft( 3 - parseInt (String(await contract.mintDetails(accounts[0])).charAt(0)));
-              //  alert(mintLeft);
-              if(String(await contract.mintDetails(accounts[0])).includes('true')){
-                setIsWhitelisted(true);
-                setValuePrice(mintWhitelistPrice);
-              }
-              else {
-                setIsWhitelisted(false);
-                setValuePrice(mintPublicPrice);
-              }
+                  contractAddress,
+                  WildListNFTABI.abi,
+                  provider_
+                );
+                try{
+              mintPublicPrice=await contract.publicPrice();
+              mintWhitelistPrice= await contract.whiteListPrice();
+             setMintLeft( 3 - parseInt (String(await contract.mintDetails(accounts[0])).charAt(0)));
+            //  alert(mintLeft);
+            if(String(await contract.mintDetails(accounts[0])).includes('true')){
+              setIsWhitelisted(true);
+              setValuePrice(mintWhitelistPrice);
+            }
+            else {
+              setIsWhitelisted(false);
+              setValuePrice(mintPublicPrice);
+            }
+      
+              setMintWhitelistPrice(Web3.utils.fromWei(String(mintWhitelistPrice))+' ETH');
+              setMintPublicPrice(Web3.utils.fromWei(String(mintPublicPrice))+' ETH');
+          }
+          catch(err){
+            alert(err);
+          }
         
-                setMintWhitelistPrice(Web3.utils.fromWei(String(mintWhitelistPrice))+' ETH');
-                setMintPublicPrice(Web3.utils.fromWei(String(mintPublicPrice))+' ETH');
-                
-          
             }
         }
         else if(type=='walletconnect') {
@@ -94,44 +106,54 @@ const HeroSection = ({ accounts,SetAccounts,type,setType}) => {
                 const provider_ = await web3Modal1.connect();
                 const library = new ethers.providers.Web3Provider(provider_);
                 const web3Provider = new ethers.providers.Web3Provider(provider);
-                const signer=web3Provider.getSigner();
+               // const signer=web3Provider.getSigner();
+               const signer=library.getSigner();
                 const contract= new ethers.Contract(
                     contractAddress,
                     WildListNFTABI.abi,
                    signer
                   );
-                  mintPublicPrice=await contract.publicPrice();
-                  mintWhitelistPrice= await contract.whiteListPrice();
-                 setMintLeft( 3 - parseInt (String(await contract.mintDetails(accounts[0])).charAt(0)));
-                //  alert(mintLeft);
-                if(String(await contract.mintDetails(accounts[0])).includes('true')){
-                  setIsWhitelisted(true);
-                  setValuePrice(mintWhitelistPrice);
-                }
-                else {
-                  setIsWhitelisted(false);
-                  setValuePrice(mintPublicPrice);
-                }
-          
-                  setMintWhitelistPrice(Web3.utils.fromWei(String(mintWhitelistPrice))+' ETH');
-                  setMintPublicPrice(Web3.utils.fromWei(String(mintPublicPrice))+' ETH');
-                  
+
+                  try {
+                    mintPublicPrice=await contract.publicPrice();
+                    mintWhitelistPrice= await contract.whiteListPrice();
+                   setMintLeft( 3 - parseInt (String(await contract.mintDetails(accounts[0])).charAt(0)));
+                  //  alert(mintLeft);
+                  if(String(await contract.mintDetails(accounts[0])).includes('true')){
+                    setIsWhitelisted(true);
+                    setValuePrice(mintWhitelistPrice);
+                  }
+                  else {
+                    setIsWhitelisted(false);
+                    setValuePrice(mintPublicPrice);
+                  }
             
+                    setMintWhitelistPrice(Web3.utils.fromWei(String(mintWhitelistPrice))+' ETH');
+                    setMintPublicPrice(Web3.utils.fromWei(String(mintPublicPrice))+' ETH');
+                    
+              
+                  } catch(err) {
+                    alert(err)
+                  }
+               
               
             }
         }
         else if(type=='coinbase') {
             getData();
             async function getData() {
+              const rpc='https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161';
+              const provider__ = new ethers.providers.JsonRpcProvider(rpc);
                 const provider_ = await web3Modal1.connect(); 
                 const library = new ethers.providers.Web3Provider(provider_);
-                const web3Provider = new ethers.providers.Web3Provider(provider);
+                //const web3Provider = new ethers.providers.Web3Provider(provider);
                 const signer=library.getSigner();
                 const contract= new ethers.Contract(
                     contractAddress,
                     WildListNFTABI.abi,
                    signer
                   );
+                  try{
                   mintPublicPrice=await contract.publicPrice();
                   mintWhitelistPrice= await contract.whiteListPrice();
                  setMintLeft( 3 - parseInt (String(await contract.mintDetails(accounts[0])).charAt(0)));
@@ -148,7 +170,10 @@ const HeroSection = ({ accounts,SetAccounts,type,setType}) => {
                   setMintWhitelistPrice(Web3.utils.fromWei(String(mintWhitelistPrice))+' ETH');
                   setMintPublicPrice(Web3.utils.fromWei(String(mintPublicPrice))+' ETH');
                   
-            
+              }
+              catch(err) {
+                alert(err)
+              }
               
             }
         }
@@ -159,7 +184,97 @@ const HeroSection = ({ accounts,SetAccounts,type,setType}) => {
     function closePopup() {
         setPopup(null);
     }
-    async function handleMint() {}
+    async function handleMint() {
+      alert(type+'1')
+
+      if(type=='metamask') {
+          mintGo();
+         async function mintGo() {
+            if(window.ethereum) {
+              const rpc='https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161';
+              // const provider_ =new ethers.providers.Web3Provider(window.ethereum);
+               const provider_= new ethers.providers.JsonRpcProvider(rpc);
+               const signer = provider_.getSigner();
+               const contract= new ethers.Contract(
+                   contractAddress,
+                   WildListNFTABI.abi,
+                   provider_
+                );
+                try{
+                  const response= await contract.whiteListMint([1],
+                  {gasLimit:3000000,
+                  value:ethers.BigNumber.from('55000000000000000')});
+            }
+            catch(err) {
+              if(String(err).includes('user rejected')) {
+                alert('You cancelled the transaction!')
+              }
+              else{
+                alert(err);
+              }
+            }
+           }
+        }
+      }
+      else if(type=='walletconnect'){
+        mintGo();
+        async function mintGo() {
+          //const provider_ = await web3Modal1.connect();
+               // const library = new ethers.providers.Web3Provider(provider_);
+                const web3Provider = new ethers.providers.Web3Provider(provider);
+                //const signer=web3Provider.getSigner();
+                const signer=web3Provider.getSigner();
+                const contract= new ethers.Contract(
+                    contractAddress,
+                    WildListNFTABI.abi,
+                   signer
+                  );
+                  try{
+                    const response= await contract.whiteListMint([1],
+                    {gasLimit:3000000,
+                    value:ethers.BigNumber.from('55000000000000000')});
+              }
+              catch(err) {
+                if(String(err).includes('user rejected')) {
+                  alert('You cancelled the transaction!')
+                }
+                else{
+                  alert(err);
+                }
+              }
+        }
+      } else if(type=='coinbase'){
+        mintGo();
+            async function mintGo() {
+                const provider_ = await web3Modal1.connect(); 
+                const rpc='https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161';
+                // const provider_ =new ethers.providers.Web3Provider(window.ethereum);
+                 const provider__= new ethers.providers.JsonRpcProvider(rpc);
+                const library = new ethers.providers.Web3Provider(provider_);
+                const signer=library.getSigner();
+                const contract= new ethers.Contract(
+                    contractAddress,
+                    WildListNFTABI.abi,
+                  signer  
+                  );
+                  try{
+                    const response= await contract.whiteListMint([1],
+                    {gasLimit:3000000,
+                    value:ethers.BigNumber.from('55000000000000000')});
+              }
+              catch(err) {
+                if(String(err).includes('user rejected')) {
+                  alert('You cancelled the transaction!')
+                }
+                else{
+                  alert(err);
+                }
+              }
+              
+            }
+        }
+      
+    }
     return (
     <div className={styles.heroSection}>
     {popupStat ? (

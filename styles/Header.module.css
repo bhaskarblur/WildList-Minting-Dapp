@@ -39,7 +39,7 @@
     width: 168px;
     height: 50px;
     font-size: 1em;
-    font-weight: 700;
+    font-weight: 600;
     margin-left: 2rem;
     margin-top: auto;
     margin-bottom: auto;
@@ -77,3 +77,59 @@
     background-color: #111813;
     transition: 200ms; 
 }*/
+
+@media screen and (min-width: 340px) and (max-width:430px) {
+
+    .Nav{
+        padding-top: .8rem;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        display: block;
+    }
+
+    .socialList{
+    margin-left: 18%;
+     margin-right: auto;
+     text-align: center;
+    }
+    
+    .walletButton{display: none;}
+    .connectButton{display: none;}
+}
+
+@media screen and (min-width: 480px) and (max-width:560px) {
+
+    .Nav{
+        padding-top: .8rem;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        display: block;
+    }
+
+    .socialList{
+    margin-left: 18%;
+     margin-right: auto;
+     text-align: center;
+    }
+    
+    .walletButton{display: none;}
+    .connectButton{display: none;}
+}
+
+@media screen and (min-width: 600px) and (max-width:679px) {
+
+
+    .socialList{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 680px) and (max-width:967px) {
+
+    .socialList{
+        display: none;
+    }
+
+}

@@ -2,6 +2,7 @@
 .heroSection{
     display: flex;
     margin-top: -1%;
+    background-color: #111813;
 }
 
 .heroLeft{
@@ -31,7 +32,7 @@
     width: 168px;
     height: 50px;
     font-size: 1em;
-    font-weight: 700;
+    font-weight: 600;
     margin-top: 1.2rem;
     margin-bottom: auto;
     cursor: pointer;
@@ -57,7 +58,7 @@
      width: 320px;
      height: 50px;
      font-size: 1em;
-     font-weight: 400;
+     font-weight: 600;
 
      margin-top: auto;
      margin-bottom: 1.4rem;
@@ -78,7 +79,7 @@
     width: 124px;
     height: 50px;
     font-size: 1em;
-    font-weight: 700;
+    font-weight: 600;
     margin-top: 1.2rem;
     margin-bottom: auto;
     cursor: pointer;
@@ -92,6 +93,7 @@
 
 .girlImage{
     margin-top: -5rem;
+   
  
 
 }
@@ -111,7 +113,7 @@
     color: #F6F6FA;
     font-size: 3.2em;
     font-family: 'Work Sans', sans-serif;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: 0.01rem;
     width: auto;
 }
@@ -178,6 +180,7 @@
   
     display: block;
     margin-right: auto;
+    
     margin-top: auto;
     margin-bottom: auto;
     transform: translate(125%, 60%);
@@ -189,7 +192,7 @@
     color: #F6F6FA;
     font-size: 1.6em;
     font-family: 'Work Sans', sans-serif;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: 0.01rem;
     width: auto;
     text-align: center;
@@ -207,3 +210,313 @@
     display: block;
     width: 100%;
 }
+
+@media screen and (min-width: 340px) and (max-width:479px) {
+    .heroLeft{
+        display: none;
+    }
+
+    .heroRight{
+        display: none;
+    }
+
+    .heroMid{
+        margin-top: 3rem;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .heroText{
+        font-size: 3em;
+        width: 100%;
+    }
+
+    .heroSubText{
+        font-size: 1.15em;
+        width: 100%;
+    }
+
+    .popupDiv{
+        transform: none;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        transform: translate(0%,60%);   
+        width: auto;
+    }
+
+    .popUp{
+        margin-right: auto;
+        margin-left: -12%;
+    
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width:599px) {
+    .heroLeft{
+        display: none;
+    }
+
+    .heroRight{
+        display: none;
+    }
+
+    .heroMid{
+        margin-top: 5rem;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .heroText{
+        font-size: 3em;
+        width: 100%;
+    }
+
+    .heroSubText{
+        font-size: 1.15em;
+        width: 100%;
+    }
+
+    .popupDiv{
+        transform: none;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        transform: translate(0%,60%);   
+        width: auto;
+    }
+
+    .popUp{
+        margin-right: auto;
+        margin-left: -15%;
+    
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width:679px) {
+    .heroLeft{
+        display: none;
+    }
+
+    .heroRight{
+        display: none;
+    }
+
+    .heroMid{
+        margin-top: 5rem;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .heroText{
+        font-size: 3.2em;
+        width: 100%;
+    }
+
+    .heroSubText{
+        font-size: 1.15em;
+        width: 100%;
+    }
+
+    .popupDiv{
+        transform: none;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        transform: translate(10%,70%);   
+        
+    }
+
+    .popUp{
+        margin-right: auto;
+        margin-left: -15%;
+    
+    }
+}
+
+@media screen and (min-width: 680px) and (max-width:967px) {
+    .heroLeft{
+        display: none;
+    }
+
+    .heroRight{
+        display: none;
+    }
+
+    .heroMid{
+        margin-top: 7rem;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .heroText{
+        font-size: 3.2em;
+        width: 100%;
+    }
+
+    .heroSubText{
+        font-size: 1.15em;
+        width: 100%;
+    }
+
+    .popupDiv{
+        transform: none;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        transform: translate(10%,50%);   
+        
+    }
+
+    .popUp{
+        margin-top: auto;
+        margin-right: auto;
+        margin-left: -15%;
+    
+    }
+}
+
+@media screen and (min-width: 968px) and (max-width:1080px) {
+    .heroLeft{
+        display: none;
+    }
+
+    .heroRight{
+        display: none;
+    }
+
+    .heroMid{
+        margin-top: 7rem;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .heroText{
+        font-size: 3.2em;
+        width: 100%;
+    }
+
+    .heroTextDiv{
+        padding: 0 5rem;
+    }
+    .heroSubText{
+        font-size: 1.15em;
+        width: 100%;
+    }
+
+    .popupDiv{
+        transform: none;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        transform: translate(10%,50%);   
+        
+    }
+
+    .popUp{
+        margin-top: auto;
+        margin-right: auto;
+        margin-left: -15%;
+    
+    }
+
+}
+
+@media screen and (min-width: 1081px) and (max-width:1279px) {
+    
+    .heroMid{
+        margin-top: 4rem;
+    }
+
+    .frame2{
+        margin-right: auto;
+    }
+    
+
+}
+
+
+@media screen and (min-width: 1580px) and (max-width:1679px) {
+    .heroSection{
+        margin-top: 2rem;
+    }
+    .heroMid{
+        margin-top: 8rem;
+    }
+    .heroText{
+        font-size: 3.8em;
+    }
+
+    .heroSubText{
+        font-size: 1.2em;
+    }
+
+    .popupDiv{
+        transform: none;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        transform: translate(0%,60%);   
+        
+    }
+
+    .popUp{
+        margin-top: auto;
+        margin-right: auto;
+        margin-left: -10%;
+    
+    }
+
+}
+@media screen and (min-width: 1680px) and (max-width:1920px) {
+
+    .heroText{
+        font-size: 3.8em;
+    }
+
+    .heroSubText{
+        font-size: 1.2em;
+    }
+    .heroMid{
+        margin-top: 8rem;
+    }
+
+ 
+    .frame2{
+        margin-bottom: -2.5rem;
+    }
+
+    .heroSection{
+        margin-top: 2rem;
+    }
+    .girlImage{
+        margin-top: auto;
+        margin-bottom: 5rem;
+    }
+    
+    .popupDiv{
+        transform: none;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        transform: translate(0%,70%);   
+        
+    }
+
+    .popUp{
+        margin-top: auto;
+        margin-right: auto;
+        margin-left: -13%;
+    
+    }
+
+  }
+
+  @media screen and (min-width: 1921px) and (max-width:2040px) {
+    .girlImage{margin-bottom: 10rem;}
+  }

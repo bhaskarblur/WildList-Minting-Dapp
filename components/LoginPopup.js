@@ -19,13 +19,17 @@ export const providerOptions = {
    package: CoinbaseWalletSDK, 
    options: {
      appName: "WildList Minting DAPP",
-     infuraId: process.env.INFURA_KEY_TEST 
+     infuraId: process.env.INFURA_KEY 
    }
  },
  walletconnect: {
    package: WalletConnect, 
+   rpc: {
+    137: 'https://matic-mainnet.chainstacklabs.com',
+    URL:'https://localhost:8545'
+  },
    options: {
-     infuraId: process.env.INFURA_KEY_TEST 
+     infuraId: process.env.INFURA_KEY 
    }
  }
 };
@@ -45,6 +49,7 @@ const LoginPop = ({ accounts,SetAccounts,popup, setPopup, type,setType,network,s
     
     async function connectMetamask() {
         if(window.ethereum) {
+          try{
             const accounts= await window.ethereum.request({
                 method:"eth_requestAccounts"
             });
@@ -54,12 +59,23 @@ const LoginPop = ({ accounts,SetAccounts,popup, setPopup, type,setType,network,s
             setType('metamask');
             setPopup("close");
         }
+      
+      catch(err){
+        if(String(err).includes('closed modal')){
+          alert('Connection Rejected')
+        }
+      }
     }
+  }
 
         async function connectWallet() {
-
+          try{
          //  Create WalletConnect Provider
          const provider = new WalletConnectProvider({
+          rpc: {
+            137: 'https://matic-mainnet.chainstacklabs.com',
+            URL:'https://localhost:8545'
+          },
             infuraId: "27e484dcd9e3efcfd25a83a78777cdf1",
             qrcodeModalOptions: {
               desktopLinks: [
@@ -96,9 +112,16 @@ const LoginPop = ({ accounts,SetAccounts,popup, setPopup, type,setType,network,s
         console.log(accounts1);
         SetAccounts(accounts1)
         setProvider(provider);
+        provider.disconnect();
         setType('walletconnect');
         setPopup("close");
-        //provider.disconnect();
+      }
+      
+      catch(err){
+        if(String(err).includes('closed modal')){
+          alert('Connection Rejected')
+        }
+      }
        
         }
 
