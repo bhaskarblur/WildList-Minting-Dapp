@@ -16,7 +16,8 @@ contract WildListNFT is Ownable, ERC721A {
     SaleConfig public saleConfig = SaleConfig.WHITELIST;
     bool public mintStatus = false;
     bool public revealed = false;
-
+    bool public publicMintStatus=false;
+    bool public whiteListMintStatus=false;
     string private baseUri;
     string private notRevealedUri;
     string private baseExtension = ".json";
@@ -37,6 +38,7 @@ contract WildListNFT is Ownable, ERC721A {
         ownerAddress= msg.sender;
         contractownerAddress= payable(msg.sender);
     }
+    
     
   struct mintMap {
   
@@ -75,12 +77,12 @@ contract WildListNFT is Ownable, ERC721A {
         maxSupply = _maxSupply;
     }
 
-    function setPublicSale() external onlyOwner {
-        saleConfig = SaleConfig.PUBLIC;
+    function setPublicSale(bool _status) external onlyOwner {
+        publicMintStatus=_status;
     }
 
-    function setWhiteListSale() external onlyOwner {
-        saleConfig = SaleConfig.WHITELIST;
+    function setWhiteListSale(bool _status) external onlyOwner {
+        whiteListMintStatus=_status;
     }
 
     function getBalanceInSC()  external onlyOwner returns (uint){
@@ -150,7 +152,7 @@ contract WildListNFT is Ownable, ERC721A {
         require(mintStatus == true, "Mint is not started yet or has finished.");
         
         require(
-            saleConfig == SaleConfig.WHITELIST,
+            whiteListMintStatus==true,
             "WhiteList Mint ended or not started"
         );
         bool wlstat=mintDetails[msg.sender].WhiteListStatus;
@@ -206,7 +208,7 @@ contract WildListNFT is Ownable, ERC721A {
     function publicMint(uint256 quantity) external payable callerIsUser {
         require(mintStatus == true, "Mint is not started yet or has finished.");
         require(
-            saleConfig == SaleConfig.PUBLIC,
+            publicMintStatus==true,
             "Public Mint ended or not started"
         );
         require(msg.value >= quantity * publicPrice, "Mint Price is more");

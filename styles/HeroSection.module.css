@@ -135,20 +135,36 @@
 .mintPriceText{
     margin-top: 1.5rem;
     font-size: 1.2em;
+    font-weight: 600;
     color: #F6F6FA;
+    display: flex;
+    margin-left: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
 }
 
 .mintLeftText{
+    font-weight: 600;
     font-size: 1.2em;
     color: #F6F6FA;
+    display: flex;
+    margin-left: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
 }
 
 .priceSpan{
     color: #27E95D;
+    margin-left: .3rem;
 }
 
 .mintLeftSpan {
     color: #27E95D;
+    margin-left: .3rem;
 }
 .circleBg{
     bottom: 0%;
@@ -209,6 +225,12 @@
 .connectDiv{
     display: block;
     width: 100%;
+}
+
+.mintForm{
+    display: block;
+    text-align: center;
+    align-self: center;
 }
 
 @media screen and (min-width: 340px) and (max-width:479px) {
@@ -520,3 +542,22 @@
   @media screen and (min-width: 1921px) and (max-width:2040px) {
     .girlImage{margin-bottom: 10rem;}
   }
+
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .loading_spinner {
+    width: 24px;
+    height: 24px;
+    border: 5px solid #27E95D; /* Light grey */
+    border-top: 5px solid #383636; /* Black */
+    border-radius: 50%;
+    margin-left: .3rem;
+    animation: spinner 1.5s linear infinite;
+  }
+
