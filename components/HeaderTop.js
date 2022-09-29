@@ -3,10 +3,15 @@ import Image from 'next/image'
 import styles from '../styles/Header.module.css'
 import { ethers } from "ethers";
 import LoginPop from '../components/LoginPopup'
+import LoginPop_2 from './LoginPopup_2';
 const HeaderTop = ({ accounts,SetAccounts}) => {
     const [popup,setPopup]=useState([]);
     const popupStat=Boolean(popup);
+    const [type,setType] = useState([]);
     const isConnected= Boolean(accounts[0]);
+    const [network, setNetwork] = useState();
+    const [provider,setProvider]= useState([]);
+    const [wallet,SetWallet] = useState([]);
     const address=String(accounts).substring(0,6);
     async function connectMetamask(){
         if(window.ethereum) {
@@ -28,8 +33,9 @@ const HeaderTop = ({ accounts,SetAccounts}) => {
       {popupStat ? (
         <div></div>
     ) : (
-        <LoginPop accounts={accounts} SetAccounts={SetAccounts} 
-        popup={popup} setPopup={setPopup}></LoginPop>
+        <LoginPop_2 accounts={accounts} SetAccounts={SetAccounts} 
+        popup={popup} setPopup={setPopup} type={type} setType={setType} network={network} setNetwork={setNetwork}
+        provider={provider} setProvider={setProvider} wallet={wallet} SetWallet={SetWallet}></LoginPop_2>
   
     )}
         <div className={styles.leftNav}>
@@ -65,7 +71,7 @@ const HeaderTop = ({ accounts,SetAccounts}) => {
             {isConnected ? (
                <button className={styles.walletButton}>Wallet:{address}</button>
             ) : (
-                <button onClick={closePopup} className={styles.connectButton}>Connect Wallet</button>
+                <div></div>
             )}
         </div>
       </div>

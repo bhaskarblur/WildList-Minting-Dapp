@@ -146,12 +146,19 @@ if (typeof window !== 'undefined'){
       supportedChainIds: [1, 3, 4, 5, 42]
      });
 
-const LoginPop = ({ accounts,SetAccounts,popup, setPopup, type,setType,network,setNetwork,provider,setProvider ,wallet, SetWallet}) =>{
+const LoginPop_2 = ({ accounts,SetAccounts,popup, setPopup, type,setType,network,setNetwork,provider,setProvider ,wallet, SetWallet}) =>{
     function closePopup() {
         setPopup("close");
     }
 
 
+    if (typeof window !== undefined) {
+      window.onbeforeunload = async () => {
+        //await web3Modal1.clearCachedProvider();
+        const [primaryWallet] = await onboard.state.get().wallets;
+        if (primaryWallet) await onboard.disconnectWallet({ label: primaryWallet.label });
+      }
+    }
     async function connectMetamask() {
         if(window.ethereum) {
           try{
@@ -235,8 +242,8 @@ const LoginPop = ({ accounts,SetAccounts,popup, setPopup, type,setType,network,s
       }
        
         }
-
-        const connectCoinBase = async () => {
+        connectCoinBase()
+        async function connectCoinBase() {
                 
             try {
               const wallets = await onboard.connectWallet();
@@ -262,21 +269,18 @@ const LoginPop = ({ accounts,SetAccounts,popup, setPopup, type,setType,network,s
     
 
     return(
-        <div className={styles.popUp}>
+      <div className={styles.popUp}>
      
-            <div className={styles.popupDiv}>
-            <div onClick={closePopup} className={styles.crossBtn}>
-            <Image  src='/cross.png' width={18} height={18}></Image> </div>
-            <h2 className={styles.popupHead}>Connect with</h2>
-            <div className={styles.connectDiv}>
-            <button onClick={connectMetamask} className={styles.walletButton}>Metamask Wallet</button>
-            <button onClick={connectWallet} className={styles.walletButton}>Wallet Connect</button>
-            <button onClick={connectCoinBase}  className={styles.walletButton}>Coinbase Wallet</button>   
-            </div>
-             
-            </div>
-        </div>
+      <div className={styles.popupDiv}>
+      <div onClick={closePopup} className={styles.crossBtn}>
+      <Image  src='/cross.png' width={18} height={18}></Image> </div>
+      <h2 className={styles.popupHead}>Transaction pending</h2>
+      <h3 className={styles.popupSubHead}>It will take some time to finish. You can always close this message. 
+      You will get the transaction hash when finished.</h3>
+       
+      </div>
+  </div>
     );
 }
 
-export default LoginPop
+export default LoginPop_2

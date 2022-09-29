@@ -78,6 +78,100 @@
     transition: 200ms; 
 }*/
 
+.popUp{
+    position: fixed;
+   
+    width: 100%;
+    margin-top: -6%;
+    margin-left: -5%;
+    height: 100%;
+    background-color: #101913af;
+    z-index: 1;
+}
+
+.popupDiv{
+    width: 400px;
+    height: auto;
+    background-color: #1B1E23;
+    text-align: center;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-radius: 12px;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    display: block;
+    margin-right: auto;
+    justify-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    transform: translate(125%, 115%);
+    transition: 400ms;
+
+
+}
+.popupHead{
+    color: #F6F6FA;
+    font-size: 1.6em;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.01rem;
+    width: auto;
+    text-align: center;
+    padding-left: 1rem;
+    margin-left: .2rem;
+    margin-bottom: 1.2rem;
+    
+}
+
+.popupSubHead{
+    color: #919F98;
+    font-size: .87em;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.01rem;
+    line-height: 140%;
+    width: auto;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    text-align: center;
+   
+
+    margin-bottom: 1.2rem;
+}
+.crossBtn{
+    cursor: pointer;
+    float: right;
+}
+
+@keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .spinnerDiv{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    margin-bottom: .5rem;
+  }
+  .loading_spinner {
+    width: 38px;
+    height: 38px;
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #383636; /* Black */
+    border-radius: 50%;
+    left: auto;
+    right: auto;
+    transform: translate(50%,50%);
+    animation: spinner 1.5s linear infinite;
+  }
+
 @media screen and (min-width: 340px) and (max-width:430px) {
 
     .Nav{
@@ -96,8 +190,38 @@
     
     .walletButton{display: none;}
     .connectButton{display: none;}
+    .popupDiv{
+        transform: none;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        transform: translate(0%,80%);   
+        width: auto;
+    }
+
+    .popUp{
+        margin-right: auto;
+        margin-left: -12%;
+    
+    }
 }
 
+@media screen and (min-width: 431px) and (max-width:479px) {
+    .popupDiv{
+        transform: none;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        transform: translate(0%,60%);   
+        width: auto;
+    }
+
+    .popUp{
+        margin-right: auto;
+        margin-left: -22%;
+    
+    }
+}
 @media screen and (min-width: 480px) and (max-width:560px) {
 
     .Nav{
@@ -116,6 +240,21 @@
     
     .walletButton{display: none;}
     .connectButton{display: none;}
+
+      .popupDiv{
+        transform: none;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        transform: translate(0%,60%);   
+        width: 400px;
+    }
+
+    .popUp{
+        margin-right: auto;
+        margin-left: -18%;
+    
+    }
 }
 
 @media screen and (min-width: 600px) and (max-width:679px) {
@@ -124,6 +263,23 @@
     .socialList{
         display: none;
     }
+
+
+    .popupDiv{
+        transform: none;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        transform: translate(0%,60%);   
+        width: 400px;
+    }
+
+    .popUp{
+        margin-right: auto;
+        margin-left: -5%;
+    
+    }
+    
 }
 
 @media screen and (min-width: 680px) and (max-width:967px) {
@@ -132,4 +288,43 @@
         display: none;
     }
 
+    .popupDiv{
+        transform: none;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        transform: translate(0%,80%);   
+        width: 400px;
+    }
+
+    .popUp{
+        margin-right: auto;
+        margin-left: -5%;
+    
+    }
+
+    @media screen and (min-width: 968px) and (max-width:1080px) {
+    
+    
+        .popupDiv{
+            transform: none;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            transform: translate(0%,50%);   
+            width: 400px;
+            
+        }
+    
+        .popUp{
+            margin-top: auto;
+            margin-right: auto;
+            margin-left: -25%;
+        
+        }
+    
+    }
+    
+    
+    
 }
