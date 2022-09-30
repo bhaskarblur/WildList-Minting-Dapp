@@ -14,7 +14,7 @@ import { publicSupply } from '../config/configData.js';
 import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import WildListNFTABI from '../config/WildListNFTABI.json';
-import {heroText,heroSubText,DappUrl,logoURL,iconURL, contractAddress,contractABI, INFURA_KEY_TEST,INFURA_KEY,RPC_URL,chainId} from '../config/configData.js'
+import {heroText,heroSubText,DappUrl,logoURL,iconURL, contractAddress,contractABI, RPC_URL_MAINNET, INFURA_KEY_TEST,INFURA_KEY,RPC_URL,chainId} from '../config/configData.js'
 import WalletConnect from "@walletconnect/web3-provider";
 import { get } from 'store';
 import coinbaseWalletModule from "@web3-onboard/coinbase";
@@ -26,8 +26,8 @@ const walletConnect = walletConnectModule();
 const injected = injectedModule();
 
 const modules = [coinbaseWalletSdk, walletConnect, injected];
-const MAINNET_RPC_URL = `https://mainnet.infura.io/v3/${INFURA_KEY}`;
-const ROPSTEN_RPC_URL = `https://ropsten.infura.io/v3/${INFURA_KEY}`;
+const MAINNET_RPC_URL = RPC_URL_MAINNET;
+const ROPSTEN_RPC_URL = `https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161`;
 const RINKEBY_RPC_URL = RPC_URL;
 
 const onboard = Onboard({
