@@ -14,7 +14,6 @@ export const RINKEBY_RPC_URL= 'https://rinkeby.infura.io/v3/5205a0b3953c4908bcbe
 export const RPC_URL='https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161';
 export const RPC_URL_MAINNET='https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161';
 export const ETHERSCAN_API_KEY='47TUKJQHSZANIDM4KTUDWCIS1ABWSPA764'
-export const PRIVATE_WALLET_KEY='9948aeb03e9284987bfc556811d922272118976eb445ec45d767c46db2337f31'
 export const contractAddress='0x3321d48028D008890F02C48FC94194cD4932a7C6';
 export const contractABI= [
     {
