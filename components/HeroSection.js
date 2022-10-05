@@ -396,8 +396,7 @@ const HeroSection = ({ accounts,SetAccounts,type,setType}) => {
                 const library = new ethers.providers.Web3Provider(provider_);
                 const wallets = await onboard.connectWallet();
                 const ethersProvider = new ethers.providers.Web3Provider(
-                  wallets[0].provider,
-                  'rinkeby'
+                  wallets[0].provider
                 );
                 //const signer=library.getSigner(accounts[0]);
                 const contract= new ethers.Contract(
@@ -405,9 +404,10 @@ const HeroSection = ({ accounts,SetAccounts,type,setType}) => {
                     WildListNFTABI.abi,
                     ethersProvider.getSigner()
                   );
-                  closePopup_2();
+                
                  
                   try{
+                    closePopup_2();
                     if(isWhitelisted) {
                    
                     const response= await contract.whiteListMint([1],
